@@ -1,7 +1,7 @@
 import numpy as np
 
 class DefensiveEngine:
-    def __init__(self, length=105.0, width=68.0):
+    def __init__(self, length=120.0, width=80.0):
         self.length = length
         self.width = width
 

@@ -1,15 +1,6 @@
 import React from 'react';
 import './Header.css';
 
-interface Match {
-    id: string;
-    home_team: string;
-    away_team: string;
-    home_score: number;
-    away_score: number;
-    date: string;
-}
-
 interface HeaderProps {
     globalFrame: number;
     homeFormation?: string;

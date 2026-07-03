@@ -167,6 +167,7 @@ def load_match_into_memory(match_id: str):
         
         # Load match events (Goals, Cards)
         base_dir = os.path.join(os.path.dirname(__file__), "skillcorner_data", "data", "matches", str(match_id))
+        events = []
         match_json = os.path.join(base_dir, f"{match_id}_match.json")
         if os.path.exists(match_json):
             with open(match_json, 'r', encoding='utf-8') as f:

@@ -7,8 +7,8 @@ import './MatchPlayer.css';
 
 interface MatchPlayerProps {
     events?: any[];
-    onAnalyze?: (frameIndex: number) => void;
-    onFrameChange?: (globalFrame: number) => void;
+    onAnalyze: (frameIndex: number) => void;
+    onFrameChange: (globalFrame: number) => void;
     onPlayStateChange?: (isPlaying: boolean) => void;
     onPossessionChange?: (possession: any) => void;
     selectedAction?: any;

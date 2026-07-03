@@ -3,7 +3,7 @@ import pandas as pd
 from scipy.interpolate import RectBivariateSpline
 
 class XTEngine:
-    def __init__(self, pitch_length=105.0, pitch_width=68.0):
+    def __init__(self, pitch_length=120.0, pitch_width=80.0):
         self.length = pitch_length
         self.width = pitch_width
         
@@ -158,4 +158,4 @@ class XTEngine:
             "opponents": opponents
         }
 
-xt_engine = XTEngine(pitch_length=105.0, pitch_width=68.0)
+xt_engine = XTEngine(pitch_length=120.0, pitch_width=80.0)

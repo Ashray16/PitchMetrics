@@ -4,7 +4,7 @@ from typing import Dict, Any, List
 from .decision_engine import DecisionEngine, PhaseOfPlay, BallZone
 
 class StateEngine:
-    def __init__(self, length=105.0, width=68.0):
+    def __init__(self, length=120.0, width=80.0):
         self.length = length
         self.width = width
         self.decision_engine = DecisionEngine(length, width) # To reuse some heuristic methods temporarily

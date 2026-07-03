@@ -3,7 +3,7 @@ from typing import Dict, Any, List
 from .xt_engine import xt_engine
 
 class PredictiveEngine:
-    def __init__(self, length=105.0, width=68.0):
+    def __init__(self, length=120.0, width=80.0):
         self.length = length
         self.width = width
         self.max_speed = 8.0 # m/s cap for predictions
