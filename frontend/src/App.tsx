@@ -43,6 +43,7 @@ function App() {
     
     // Match Selection State
     const [matches, setMatches] = useState<any[]>([]);
+    const [events, setEvents] = useState<any[]>([]);
     const [currentMatchId, setCurrentMatchId] = useState<string>("1886347");
     const [isSwitchingMatch, setIsSwitchingMatch] = useState<boolean>(false);
 
@@ -60,7 +61,19 @@ function App() {
                 if (data.matches) setMatches(data.matches);
             })
             .catch(err => console.error(err));
+            
+        // Initial fetch for events (for the default loaded match)
+        fetchEvents();
     }, []);
+    
+    const fetchEvents = () => {
+        fetch(endpoints.events(), { headers: getHeaders() })
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.events) setEvents(data.events);
+            })
+            .catch(err => console.error(err));
+    };
 
     const handleMatchChange = async (matchId: string) => {
         setIsSwitchingMatch(true);
@@ -72,6 +85,8 @@ function App() {
             setCurrentPossession(null);
             setAnalyticsData(null);
             setSelectedAction(null);
+            // Fetch events for the new match
+            fetchEvents();
         } catch (e) {
             console.error("Failed to load match", e);
         }
@@ -140,6 +155,7 @@ function App() {
                 homeFormation={analyticsData?.home_formation?.shape}
                 awayFormation={analyticsData?.away_formation?.shape}
                 matches={matches}
+                events={events}
                 currentMatchId={currentMatchId}
                 onMatchChange={handleMatchChange}
             />
@@ -157,6 +173,7 @@ function App() {
                         {!isSwitchingMatch && (
                             <MatchPlayer 
                                 key={currentMatchId}
+                                events={events}
                                 onAnalyze={handleAnalyze} 
                                 onFrameChange={setGlobalFrame}
                                 onPlayStateChange={setIsPlaying}

@@ -169,8 +169,8 @@ def load_match_into_memory(match_id: str):
         base_dir = os.path.join(os.path.dirname(__file__), "skillcorner_data", "data", "matches", str(match_id))
         match_json = os.path.join(base_dir, f"{match_id}_match.json")
         if os.path.exists(match_json):
-            with open(match_json, 'r') as f:
-                mData = json.load(f)
+            with open(match_json, 'r', encoding='utf-8') as f:
+                m_data = json.load(f)
                 
             dynamic_csv = os.path.join(base_dir, f"{match_id}_dynamic_events.csv")
             goals_frames = []

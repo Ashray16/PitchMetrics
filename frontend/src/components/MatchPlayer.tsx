@@ -6,21 +6,21 @@ import { endpoints, getHeaders } from '../api';
 import './MatchPlayer.css';
 
 interface MatchPlayerProps {
-    onAnalyze: (frame: number) => void;
-    onFrameChange: (globalFrame: number) => void;
+    events?: any[];
+    onAnalyze?: (frameIndex: number) => void;
+    onFrameChange?: (globalFrame: number) => void;
     onPlayStateChange?: (isPlaying: boolean) => void;
     onPossessionChange?: (possession: any) => void;
     selectedAction?: any;
 }
 
-export const MatchPlayer: React.FC<MatchPlayerProps> = ({ onAnalyze, onFrameChange, onPlayStateChange, onPossessionChange, selectedAction }) => {
+export const MatchPlayer: React.FC<MatchPlayerProps> = ({ events = [], onAnalyze, onFrameChange, onPlayStateChange, onPossessionChange, selectedAction }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [possessions, setPossessions] = useState<any[]>([]);
     const [currentPossession, setCurrentPossession] = useState<any>(null);
-    const [maxGlobalFrames, setMaxGlobalFrames] = useState(20000);
-    const [homeGk, setHomeGk] = useState('11');
-    const [awayGk, setAwayGk] = useState('25');
-    const [events, setEvents] = useState<any[]>([]);
+    const [homeGk, setHomeGk] = useState('1');
+    const [awayGk, setAwayGk] = useState('1');
+    const [maxGlobalFrames, setMaxGlobalFrames] = useState<number>(0);
     
     // Playback state
     const [frames, setFrames] = useState<any[]>([]);
@@ -64,13 +64,6 @@ export const MatchPlayer: React.FC<MatchPlayerProps> = ({ onAnalyze, onFrameChan
                 if (data && data.away_gk) setAwayGk(data.away_gk);
             })
             .catch(err => console.error("Failed to fetch GKs:", err));
-            
-        fetch(endpoints.events(), { headers: getHeaders() })
-            .then(res => res.json())
-            .then(data => {
-                if (data && data.events) setEvents(data.events);
-            })
-            .catch(err => console.error("Failed to fetch events:", err));
             
     }, []);
 

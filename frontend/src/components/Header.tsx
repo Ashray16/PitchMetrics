@@ -14,19 +14,31 @@ interface HeaderProps {
     globalFrame: number;
     homeFormation?: string;
     awayFormation?: string;
-    matches: Match[];
+    matches: any[];
+    events?: any[];
     currentMatchId: string;
     onMatchChange: (id: string) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ globalFrame, homeFormation = '4-2-3-1', awayFormation = '4-3-3', matches, currentMatchId, onMatchChange }) => {
-    // 25 FPS.
-    const totalSeconds = Math.floor(globalFrame / 25);
+export const Header: React.FC<HeaderProps> = ({ globalFrame, homeFormation = '4-2-3-1', awayFormation = '4-3-3', matches, events = [], currentMatchId, onMatchChange }) => {
+    // SkillCorner tracking data is 10 FPS
+    const totalSeconds = Math.floor(globalFrame / 10);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
     const timeStr = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     
     const currentMatch = matches.find(m => m.id === currentMatchId);
+    
+    // Calculate dynamic score based on events up to the current globalFrame
+    let dynamicHomeScore = 0;
+    let dynamicAwayScore = 0;
+    
+    events.forEach(ev => {
+        if (ev.type === 'goal' && ev.frame <= globalFrame) {
+            if (ev.team === 'Home') dynamicHomeScore += 1;
+            else if (ev.team === 'Away') dynamicAwayScore += 1;
+        }
+    });
 
     return (
         <header className="app-header">
@@ -52,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({ globalFrame, homeFormation = '4-
                 </div>
                 
                 <div className="broadcast-row score-row">
-                    <span className="score">0 - 0</span>
+                    <span className="score">{dynamicHomeScore} - {dynamicAwayScore}</span>
                 </div>
                 
                 <div className="broadcast-row bottom">
