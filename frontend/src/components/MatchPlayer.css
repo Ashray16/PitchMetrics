@@ -1,0 +1,149 @@
+.match-player {
+    background-color: #131C2F;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #1f2937;
+    flex-shrink: 0;
+}
+
+.possession-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.poss-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+}
+
+.poss-team {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.text-red { color: #ef4444; }
+.text-blue { color: #3b82f6; }
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: filter 0.2s;
+}
+
+.btn:hover {
+    filter: brightness(1.1);
+}
+
+.btn-primary {
+    background-color: #10b981; /* Green */
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #374151;
+    color: white;
+}
+
+.canvas-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0B1220;
+    padding: 24px;
+    min-height: 0;
+}
+
+.pitch-canvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    border: 1px solid #1f2937;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.player-controls-container {
+    background-color: #131C2F;
+    padding: 16px 24px 0 24px;
+    border-top: 1px solid #1f2937;
+    flex-shrink: 0;
+}
+
+.time-display {
+    text-align: center;
+    font-size: 13px;
+    font-family: monospace;
+    color: #d1d5db;
+    margin-bottom: 12px;
+}
+
+.playback-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 16px;
+}
+
+.playback-controls button {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.playback-controls button:hover {
+    color: white;
+}
+
+.play-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #3b82f6 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.play-btn:hover {
+    background-color: #2563eb !important;
+    transform: scale(1.05);
+}
+
+.speed-select {
+    background-color: #1f2937;
+    color: white;
+    border: 1px solid #374151;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    outline: none;
+}

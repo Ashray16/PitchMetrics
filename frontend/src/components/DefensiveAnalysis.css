@@ -1,0 +1,44 @@
+.defensive-analysis-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+}
+
+.defensive-metrics-bar {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.defensive-metric-card {
+    background: var(--color-panel);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: var(--radius-card);
+    padding: 16px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: var(--shadow-premium);
+}
+
+.defensive-metric-card .metric-label {
+    color: var(--text-label);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.defensive-metric-card .metric-value {
+    color: var(--text-main);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.defensive-charts-row {
+    display: flex;
+    gap: 24px;
+    height: 350px;
+}

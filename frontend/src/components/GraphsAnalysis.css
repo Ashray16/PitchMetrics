@@ -1,0 +1,76 @@
+.graphs-analysis-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: #131C2F;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    overflow: hidden;
+}
+
+.graphs-sidebar {
+    width: 250px;
+    background-color: #131C2F;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-right: 1px solid #1f2937;
+}
+
+.graphs-sidebar h3 {
+    margin: 0 0 10px 0;
+    color: #f8fafc;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.graph-btn {
+    background-color: #131C2F;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.graph-btn:hover {
+    background-color: #2dd4bf;
+    color: #022c22;
+    border-color: #2dd4bf;
+}
+
+.graph-btn.active {
+    background-color: #2563eb;
+    color: white;
+    border-color: #2563eb;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+}
+
+.graph-info {
+    margin-top: auto;
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+
+.graph-info p {
+    margin: 10px 0;
+}
+
+.graph-info strong {
+    color: #38bdf8;
+}
+
+.chart-container {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Important for recharts inside flex */
+}

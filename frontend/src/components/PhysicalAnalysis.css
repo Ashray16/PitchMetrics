@@ -1,0 +1,137 @@
+.physical-analysis-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+.physical-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(17, 24, 39, 0.8);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.physical-header h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.25rem;
+}
+
+.loading-indicator {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    animation: pulse 1.5s infinite;
+}
+
+.physical-table-container {
+    flex: 1;
+    overflow-y: auto;
+    background-color: rgba(17, 24, 39, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: opacity 0.3s;
+}
+
+.physical-table-container.loading {
+    opacity: 0.5;
+}
+
+.physical-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+}
+
+.physical-table th {
+    position: sticky;
+    top: 0;
+    background-color: #1f2937;
+    color: #9ca3af;
+    padding: 1rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.physical-table th:first-child {
+    text-align: center;
+}
+
+.physical-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #e5e7eb;
+    font-variant-numeric: tabular-nums;
+}
+
+.physical-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.player-col {
+    text-align: center !important;
+}
+
+.jersey-badge {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.home-team .jersey-badge {
+    background-color: #ef4444;
+    color: white;
+}
+
+.away-team .jersey-badge {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.graph-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    height: 100%;
+    min-height: 24px;
+}
+
+.graph-bar-container span {
+    position: relative;
+    z-index: 2;
+}
+
+.graph-bar {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    border-radius: 4px;
+    z-index: 1;
+    opacity: 0.2;
+}
+
+.graph-bar.blue { background-color: #3b82f6; }
+.graph-bar.red { background-color: #ef4444; }
+.graph-bar.orange { background-color: #f97316; }
+.graph-bar.green { background-color: #10b981; }
+.graph-bar.green-light { background-color: #34d399; }
+.graph-bar.purple { background-color: #8b5cf6; }
+.graph-bar.pink { background-color: #ec4899; }
+.graph-bar.yellow { background-color: #eab308; }

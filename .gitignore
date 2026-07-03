@@ -1,0 +1,28 @@
+# Environments
+venv/
+env/
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+build/
+.npm/
+
+# Vercel / Render
+.vercel/
+
+# Data Files (You don't want to push gigabytes of CSV/Parquet files to Github!)
+*.csv
+*.parquet
+*.jsonl
+data/
+backend/skillcorner_data/data/
+scratch/
+
+# OS Files
+.DS_Store
+Thumbs.db

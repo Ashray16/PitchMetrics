@@ -1,0 +1,66 @@
+.possession-analysis-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+}
+
+.possession-metrics-bar {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.possession-metric-card {
+    background: var(--color-panel);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: var(--radius-card);
+    padding: 16px;
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: var(--shadow-premium);
+}
+
+.possession-metric-card .metric-label {
+    color: var(--text-label);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.possession-metric-card .metric-value {
+    color: var(--text-main);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.possession-charts-row {
+    display: flex;
+    gap: 24px;
+    height: 350px;
+}
+
+.chart-panel {
+    flex: 1;
+    background: var(--color-panel);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: var(--radius-card);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-premium);
+}
+
+.chart-panel h3 {
+    margin: 0 0 16px 0;
+    color: var(--text-section);
+    font-size: 16px;
+}
+
+.chart-wrapper {
+    flex: 1;
+    min-height: 0;
+}

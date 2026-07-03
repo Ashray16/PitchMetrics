@@ -1,0 +1,151 @@
+
+/* ---------- PREMIUM UI OVERHAUL ---------- */
+
+/* Global Settings */
+:root {
+  --color-home: #DC2626;
+  --color-home-grad: linear-gradient(to bottom, #FF6B6B, #DC2626);
+  --color-away: #2563EB;
+  --color-away-grad: linear-gradient(to bottom, #60A5FA, #2563EB);
+  --color-loose: #64748B;
+  
+  --shadow-premium: 0px 10px 25px rgba(0,0,0,0.25);
+  --shadow-glow-blue: 0 0 10px rgba(59,130,246,0.5);
+  --shadow-glow-white: 0 0 10px rgba(255,255,255,0.8);
+  
+  --radius-card: 14px;
+  --radius-btn: 10px;
+  --radius-timeline: 12px;
+  --radius-player: 16px;
+  
+  --transition-smooth: all 0.2s ease-in-out;
+}
+
+/* Header & Glassmorphism */
+.app-header {
+  background: linear-gradient(to bottom, #182234, #111827) !important;
+  box-shadow: var(--shadow-premium) !important;
+  border-bottom: none !important;
+}
+
+.broadcast-container {
+  background: rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: var(--radius-card) !important;
+}
+
+/* Typography Overrides */
+.score, .match-clock, .competition {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+.score { font-size: 28px !important; }
+.match-clock { font-size: 20px !important; }
+
+.broadcast-row span {
+  color: #94A3B8;
+}
+.broadcast-row span.score, .broadcast-row span.match-clock {
+  color: #FFFFFF;
+}
+
+/* Buttons */
+button {
+  border-radius: var(--radius-btn) !important;
+  transition: var(--transition-smooth) !important;
+}
+button.primary-btn, .analyze-button {
+  background: linear-gradient(to bottom, #22C55E, #16A34A) !important;
+  border: none !important;
+  color: white !important;
+}
+button.primary-btn:hover, .analyze-button:hover {
+  box-shadow: 0 0 15px rgba(34,197,94,0.5) !important;
+  transform: translateY(-2px);
+}
+button.secondary-btn, .control-btn {
+  background-color: #1E293B !important;
+  color: white !important;
+}
+button.secondary-btn:hover, .control-btn:hover {
+  background-color: #334155 !important;
+  transform: translateY(-2px);
+}
+
+/* Tabs */
+.tabs-header button {
+  background-color: transparent !important;
+  color: #94A3B8 !important;
+  border: none !important;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+.tabs-header button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #3b82f6;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+.tabs-header button.active {
+  color: #3b82f6 !important;
+  text-shadow: 0 0 8px rgba(59,130,246,0.5);
+  background-color: transparent !important;
+}
+.tabs-header button.active::after {
+  transform: scaleX(1);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+/* Timeline */
+.timeline-container {
+  border-radius: var(--radius-timeline) !important;
+}
+.timeline-event.goal { background-color: #FFD700 !important; }
+.timeline-event.card { background-color: #FBBF24 !important; }
+.timeline-event.sub { background-color: #A855F7 !important; }
+.timeline-scrubber {
+  box-shadow: var(--shadow-glow-white) !important;
+  background-color: #FFFFFF !important;
+}
+.color-box.home { background-color: #F87171 !important; } /* Soft Red */
+.color-box.away { background-color: #60A5FA !important; } /* Soft Blue */
+.color-box.none { background-color: #64748B !important; } /* Slate */
+
+/* Hover Effects on Cards */
+.insight-card, .weakness-card, .suggestion-card, .action-card, .tab-content > div {
+  border-radius: var(--radius-card) !important;
+  transition: var(--transition-smooth);
+}
+.insight-card:hover, .weakness-card:hover, .suggestion-card:hover, .action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-premium);
+  filter: brightness(1.1);
+}
+
+/* Analysis Cards Accents */
+.tactical-context-panel { border-left: 3px solid rgba(59,130,246,0.5) !important; }
+.action-rankings-panel { border-left: 3px solid rgba(34,197,94,0.5) !important; }
+/* Pitch Control etc. will need targeted classes if they don't have wrappers, but we'll try */
+
+
+/* Tab Content Borders */
+.pitch_control-tab { border: var(--border-pitch) !important; box-shadow: 0 0 15px rgba(168,85,247,0.1) !important; }
+.space-tab { border: var(--border-space) !important; box-shadow: 0 0 15px rgba(6,182,212,0.1) !important; }
+.physical-tab { border: var(--border-physical) !important; box-shadow: 0 0 15px rgba(249,115,22,0.1) !important; }
+.graphs-tab { border: var(--border-graphs) !important; box-shadow: 0 0 15px rgba(236,72,153,0.1) !important; }
+.passing-tab { border: 1px solid rgba(255,215,0,0.3) !important; }
+.xt-tab { border: 1px solid rgba(16,185,129,0.3) !important; }
+.heatmap-tab { border: 1px solid rgba(220,38,38,0.3) !important; }
+
+.possession-tab { border: 1px solid rgba(14,165,233,0.3) !important; }
+.defensive-tab { border: 1px solid rgba(244,63,94,0.3) !important; }
+.xg-tab { border: 1px solid rgba(234,179,8,0.3) !important; }
+
+.dynamics-tab { border: 1px solid rgba(16, 185, 129, 0.3) !important; }

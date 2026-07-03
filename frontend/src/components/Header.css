@@ -1,0 +1,114 @@
+.app-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0B1220;
+    padding: 16px 24px;
+    width: 100%;
+    position: relative;
+}
+
+.match-selector-container {
+    position: absolute;
+    left: 24px;
+    max-width: 350px;
+}
+
+.match-selector-container select {
+    background-color: #131C2F;
+    color: white;
+    border: 1px solid #374151;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 100%;
+    text-overflow: ellipsis;
+}
+
+.broadcast-container {
+    width: 600px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #131C2F;
+    padding: 16px 24px;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+}
+
+.broadcast-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.broadcast-row.score-row {
+    justify-content: center;
+    margin: 8px 0;
+}
+
+.broadcast-row.top {
+    justify-content: space-between;
+}
+
+.broadcast-row.bottom {
+    justify-content: flex-start;
+    gap: 100px;
+}
+
+.team-name {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.team-name.home {
+    color: #ef4444; /* Red */
+}
+
+.team-name.away {
+    color: #3b82f6; /* Blue */
+}
+
+.competition {
+    font-size: 14px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.score {
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 4px;
+}
+
+.match-time {
+    font-size: 16px;
+    font-family: monospace;
+    color: #d1d5db;
+    font-weight: 700;
+}
+
+.match-period {
+    font-size: 14px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.broadcast-row.formations {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid #1f2937;
+}
+
+.formation {
+    font-size: 14px;
+    color: #9ca3af;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

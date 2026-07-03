@@ -1,0 +1,52 @@
+{
+  "phases": {
+    "Build-up": {
+      "success_probability": 0.40,
+      "xt_gain": 0.15,
+      "space_created": 0.15,
+      "progression_value": 0.10,
+      "tactical_fit": 0.10,
+      "risk": 0.10
+    },
+    "Progression": {
+      "success_probability": 0.25,
+      "xt_gain": 0.25,
+      "space_created": 0.15,
+      "progression_value": 0.20,
+      "tactical_fit": 0.05,
+      "risk": 0.10
+    },
+    "Final Third": {
+      "success_probability": 0.20,
+      "xt_gain": 0.35,
+      "space_created": 0.15,
+      "progression_value": 0.10,
+      "tactical_fit": 0.05,
+      "risk": 0.15
+    },
+    "Transition": {
+      "success_probability": 0.20,
+      "xt_gain": 0.30,
+      "space_created": 0.20,
+      "progression_value": 0.20,
+      "tactical_fit": 0.05,
+      "risk": 0.05
+    }
+  },
+  "modifiers": {
+    "under_pressure": -0.15,
+    "blind_side": -0.10,
+    "running_onto_ball": 0.10,
+    "off_balance": -0.12,
+    "good_body_orientation": 0.15
+  },
+  "physics": {
+    "defender_sprint_speed": 7.5,
+    "defender_reaction_time": 0.3,
+    "ball_speed_ground": 15.0,
+    "ball_speed_driven": 22.0,
+    "ball_speed_lofted": 12.0,
+    "ball_speed_chipped": 9.0,
+    "ball_speed_cross": 18.0
+  }
+}

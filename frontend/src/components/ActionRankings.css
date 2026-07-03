@@ -1,0 +1,145 @@
+.action-rankings-container {
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.iq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.iq-stars {
+    color: #fbbf24;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.scorecard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.scorecard-row {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.scorecard-row:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.scorecard-row.selected {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: #3b82f6;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.scorecard-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.scorecard-rank {
+    width: 24px;
+    height: 24px;
+    background: #374151;
+    color: #f8fafc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.scorecard-name {
+    flex-grow: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.scorecard-total {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.iq-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #9ca3af;
+    font-weight: bold;
+}
+
+.iq-score {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.scorecard-metrics {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.metric-box {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.metric-label {
+    font-size: 10px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.metric-val {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.scorecard-details {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 3px solid #6b7280;
+}
+
+.detail-line {
+    font-size: 11px;
+    color: #cbd5e1;
+    margin-bottom: 4px;
+}
+
+.detail-label {
+    color: #9ca3af;
+    font-weight: bold;
+    text-transform: uppercase;
+}

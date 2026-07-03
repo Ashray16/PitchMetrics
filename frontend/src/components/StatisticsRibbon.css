@@ -1,0 +1,116 @@
+.statistics-ribbon-container {
+    background-color: #1f2937;
+    border-bottom: 1px solid #374151;
+    border-top: 1px solid #374151;
+    padding: 0;
+    margin-bottom: 1rem;
+    height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.statistics-ribbon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.playing-mode {
+    background: linear-gradient(90deg, rgba(31, 41, 55, 1) 0%, rgba(17, 24, 39, 1) 50%, rgba(31, 41, 55, 1) 100%);
+}
+
+.possession-mode {
+    background: linear-gradient(90deg, rgba(31, 41, 55, 1) 0%, rgba(30, 58, 138, 0.2) 50%, rgba(31, 41, 55, 1) 100%);
+}
+
+.analyze-mode {
+    background: linear-gradient(90deg, rgba(31, 41, 55, 1) 0%, rgba(6, 78, 59, 0.2) 50%, rgba(31, 41, 55, 1) 100%);
+}
+
+.stat-mode-badge {
+    position: absolute;
+    left: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.live-badge {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.5);
+}
+
+.live-badge::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    animation: pulse-red 1.5s infinite;
+}
+
+.poss-badge {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+.analyze-badge {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.5);
+}
+
+@keyframes pulse-red {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.stat-label {
+    color: #9ca3af;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-value {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.stat-divider {
+    color: #4b5563;
+    margin: 0 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.home-val {
+    color: #ef4444;
+}
+
+.away-val {
+    color: #3b82f6;
+}

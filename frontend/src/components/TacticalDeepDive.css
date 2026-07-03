@@ -1,0 +1,80 @@
+.space-control-panel {
+    background-color: #131C2F;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    padding: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.panel-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #f8fafc;
+    margin: 0;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.legend-team {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.legend-team.away {
+    color: #3b82f6;
+}
+
+.legend-team.home {
+    color: #ef4444;
+}
+
+.gradient-bar {
+    width: 200px;
+    height: 12px;
+    background: linear-gradient(to right, #2563eb, rgba(37, 99, 235, 0.2) 40%, rgba(255,255,255,0.1) 50%, rgba(220, 38, 38, 0.2) 60%, #dc2626);
+    border-radius: 6px;
+}
+
+.minimap-container {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    background-color: #1f2937;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #374151;
+}
+
+.minimap-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.pitch-control-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
