@@ -66,7 +66,7 @@ origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_credentials=True,
+    allow_credentials=False if "*" in origins else True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
@@ -205,13 +205,13 @@ def load_match_into_memory(match_id: str):
         print("Playback preprocessing complete.", flush=True)
         
         # Load match events (Goals, Cards)
-        events = []
-        match_json = f"e:/football_analytics/backend/skillcorner_data/data/matches/{match_id}/{match_id}_match.json"
+        base_dir = os.path.join(os.path.dirname(__file__), "skillcorner_data", "data", "matches", str(match_id))
+        match_json = os.path.join(base_dir, f"{match_id}_match.json")
         if os.path.exists(match_json):
-            with open(match_json, "r", encoding="utf-8") as f:
-                m_data = json.load(f)
+            with open(match_json, 'r') as f:
+                mData = json.load(f)
                 
-            dynamic_csv = f"e:/football_analytics/backend/skillcorner_data/data/matches/{match_id}/{match_id}_dynamic_events.csv"
+            dynamic_csv = os.path.join(base_dir, f"{match_id}_dynamic_events.csv")
             goals_frames = []
             if os.path.exists(dynamic_csv):
                 dyn_df = pd.read_csv(dynamic_csv)
