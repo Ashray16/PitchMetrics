@@ -1,5 +1,6 @@
 [build]
 builder = "nixpacks"
+buildCommand = "pip install -r requirements.txt && rm -rf backend/skillcorner_data && git clone https://github.com/SkillCorner/opendata.git backend/skillcorner_data"
 
 [deploy]
 startCommand = "uvicorn backend.main:app --host 0.0.0.0 --port $PORT"
