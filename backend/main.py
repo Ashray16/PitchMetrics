@@ -163,46 +163,7 @@ def load_match_into_memory(match_id: str):
             df[vx_col] = (df[c] - df_shifted[c]) / dt
             df[vy_col] = (df[c.replace('_x', '_y')] - df_shifted[c.replace('_x', '_y')]) / dt
             
-        print("Pre-packaging frames for 60FPS playback...", flush=True)
-        home_cols = [c for c in df.columns if c.startswith('home_') and c.endswith('_x')]
-        away_cols = [c for c in df.columns if c.startswith('away_') and c.endswith('_x')]
-        
-        records = df.to_dict('records')
-        frames = []
-        for i, row in enumerate(records):
-            home_pts = []
-            away_pts = []
-            for c in home_cols:
-                if not pd.isna(row[c]):
-                    y = row[c.replace('_x', '_y')]
-                    vx = row.get(c.replace('_x', '_vx'), 0)
-                    vy = row.get(c.replace('_x', '_vy'), 0)
-                    if not pd.isna(y):
-                        home_pts.append({"id": c.split('_')[1], "x": round(row[c], 2), "y": round(y, 2), "vx": round(vx, 2) if not pd.isna(vx) else 0, "vy": round(vy, 2) if not pd.isna(vy) else 0})
-            for c in away_cols:
-                if not pd.isna(row[c]):
-                    y = row[c.replace('_x', '_y')]
-                    vx = row.get(c.replace('_x', '_vx'), 0)
-                    vy = row.get(c.replace('_x', '_vy'), 0)
-                    if not pd.isna(y):
-                        away_pts.append({"id": c.split('_')[1], "x": round(row[c], 2), "y": round(y, 2), "vx": round(vx, 2) if not pd.isna(vx) else 0, "vy": round(vy, 2) if not pd.isna(vy) else 0})
-                        
-            bx = row.get('ball_x', np.nan)
-            by = row.get('ball_y', np.nan)
-            ball = {"x": round(bx, 2), "y": round(by, 2)} if not pd.isna(bx) else None
-            
-            frames.append({
-                "f": i,
-                "h": home_pts,
-                "a": away_pts,
-                "b": ball,
-                "team_poss": row.get('possession_team', 'None')
-            })
-            if len(frames) % 10000 == 0:
-                print(f"Packaged {len(frames)} / {len(df)} frames...", flush=True)
-                
-        DATA["playback_frames"] = frames
-        print("Playback preprocessing complete.", flush=True)
+        print("Skipping pre-packaging to save 700MB of RAM!", flush=True)
         
         # Load match events (Goals, Cards)
         base_dir = os.path.join(os.path.dirname(__file__), "skillcorner_data", "data", "matches", str(match_id))
@@ -352,11 +313,45 @@ def get_possession_frames(request: Request, possession_id: int = Path(..., ge=0)
     else:
         end_idx = min(end_idx + 80, DATA["max_frames"] - 1)
     
-    # Return the slice of pre-packaged frames
-    if end_idx < DATA["max_frames"]:
-        frames = DATA["playback_frames"][start_idx:end_idx+1]
-    else:
-        frames = DATA["playback_frames"][start_idx:]
+    # Package frames on the fly to save RAM
+    df_slice = DATA["tracking"].iloc[start_idx:end_idx+1]
+    
+    home_cols = [c for c in df_slice.columns if c.startswith('home_') and c.endswith('_x')]
+    away_cols = [c for c in df_slice.columns if c.startswith('away_') and c.endswith('_x')]
+    
+    frames = []
+    for i in range(len(df_slice)):
+        row = df_slice.iloc[i]
+        
+        home_pts = []
+        for c in home_cols:
+            if not pd.isna(row[c]):
+                y = row[c.replace('_x', '_y')]
+                vx = row.get(c.replace('_x', '_vx'), 0)
+                vy = row.get(c.replace('_x', '_vy'), 0)
+                if not pd.isna(y):
+                    home_pts.append({"id": c.split('_')[1], "x": round(row[c], 2), "y": round(y, 2), "vx": round(vx, 2) if not pd.isna(vx) else 0, "vy": round(vy, 2) if not pd.isna(vy) else 0})
+        
+        away_pts = []
+        for c in away_cols:
+            if not pd.isna(row[c]):
+                y = row[c.replace('_x', '_y')]
+                vx = row.get(c.replace('_x', '_vx'), 0)
+                vy = row.get(c.replace('_x', '_vy'), 0)
+                if not pd.isna(y):
+                    away_pts.append({"id": c.split('_')[1], "x": round(row[c], 2), "y": round(y, 2), "vx": round(vx, 2) if not pd.isna(vx) else 0, "vy": round(vy, 2) if not pd.isna(vy) else 0})
+                    
+        bx = row.get('ball_x', np.nan)
+        by = row.get('ball_y', np.nan)
+        ball = {"x": round(bx, 2), "y": round(by, 2)} if not pd.isna(bx) else None
+        
+        frames.append({
+            "f": int(start_idx + i),
+            "h": home_pts,
+            "a": away_pts,
+            "b": ball,
+            "team_poss": row.get('possession_team', 'None')
+        })
         
     return {"frames": frames}
 
